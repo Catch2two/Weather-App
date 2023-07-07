@@ -1,4 +1,5 @@
 import { fetchWeather } from "./modules/weatherApi";
+import { handleClick } from "./modules/domFunctions";
 
 const weatherData = await fetchWeather();
 

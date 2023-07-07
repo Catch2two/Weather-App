@@ -8,22 +8,26 @@
 </head>
 <body>
     <div class="content">
-        <div id="searchContainer">
+        <form id="searchContainer">
             <input class="searchInput" placeholder="City" required></input>
             <button>Go</button>
-        </div>
+        </form>
         <div class="weatherInfo">
-            <div class="weatherDescription"></div>
-            <div class="weatherState"></div>
-            <div class="weatherCity"></div>
-
+            <div id="location">
+                <div class="weatherDescription"></div>
+                <div class="weatherState"></div>
+                <div class="weatherCity"></div>
+            </div>
             <div class="weatherTime"></div>
 
-            <div class="weatherUnitF"></div>
-            <div class="weatherUnitC"></div>
+            <div id="temperature">
+                <div class="weatherUnitF" type="text"></div>
+                <div class="weatherUnitC" type="text"></div>
+                <div class="weatherFeelsLikeF" type="text"></div>
+            </div>
 
-            <div id="location">
-                <label>Latitude:</label>
+            <div id="mapLocation">
+                <label for="weatherLatitude">Latitude:</label>
                 <div class="weatherLatitude"></div>
                 <label>Longitude:</label>
                 <div class="weatherLongitude"></div>

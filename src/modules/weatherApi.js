@@ -1,8 +1,8 @@
 const apiKey = "6fe5d9b89c10408d90d143901232806"
-const city = "Hartford"
-const url = `http://api.weatherapi.com/v1/current.json?key=${apiKey}&q=${city}&aqi=no`
 
 async function fetchWeather() {
+    const city = "Hartford"
+    const url = `http://api.weatherapi.com/v1/current.json?key=${apiKey}&q=${city}&aqi=no`
     const response = await fetch(url);
 
     if (response.status === 200) {
@@ -21,6 +21,8 @@ async function fetchWeather() {
         const state = data.location.region;
         const latitude = data.location.lat;
         const longitude = data.location.lon;
+        // Details
+  
         // DOM Selectors
         // Location
         const regionElement = document.querySelector(".weatherState")
@@ -28,18 +30,18 @@ async function fetchWeather() {
         const cityElement = document.querySelector(".weatherCity")
         cityElement.innerHTML = city;
         const latElement = document.querySelector(".weatherLatitude")
-        const lonElement = document.querySelector(".weatherLongitude")
         latElement.innerHTML = latitude;
+        const lonElement = document.querySelector(".weatherLongitude")
         lonElement.innerHTML = longitude;
         // Temperature
         const temperatureELement_F = document.querySelector(".weatherUnitF")
-        temperatureELement_F.innerHTML = temperatureF;
-
+        temperatureELement_F.innerHTML = `${temperatureF}°F`;
         const temperatureELement_C = document.querySelector(".weatherUnitC")
-        temperatureELement_C.innerHTML = temperatureC;
-        // Percipitation Detail
+        temperatureELement_C.innerHTML = `${temperatureC}°C`;
+        const feelsLikeElement_F = document.querySelector(".weatherFeelsLikeF")
+        feelsLikeElement_F.innerHTML = feelsLikeF;
+        // Weather Description
 
-        
 
         return data;
     } else {
