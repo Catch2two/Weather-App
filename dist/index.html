@@ -3,11 +3,33 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Josh's Weather App</title>
     <link rel="stylesheet" href="style.css" type="text/css">
 </head>
 <body>
-    
+    <div class="content">
+        <div id="searchContainer">
+            <input class="searchInput" placeholder="City" required></input>
+            <button>Go</button>
+        </div>
+        <div class="weatherInfo">
+            <div class="weatherDescription"></div>
+            <div class="weatherState"></div>
+            <div class="weatherCity"></div>
+
+            <div class="weatherTime"></div>
+
+            <div class="weatherUnitF"></div>
+            <div class="weatherUnitC"></div>
+
+            <div id="location">
+                <label>Latitude:</label>
+                <div class="weatherLatitude"></div>
+                <label>Longitude:</label>
+                <div class="weatherLongitude"></div>
+            </div>
+        </div>
+    </div>
 </body>
 <script src="main.js"></script>
 </html>
