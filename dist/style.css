@@ -1,33 +1,46 @@
 html {
-    background-color: rgb(131, 131, 131);
+    background-color: rgba(119, 166, 237, 0.679);
 }
 
 .content {
-    margin: auto;
+
 }
 
 #searchContainer {
     display: flex;
-    background-color: aliceblue;
+    justify-content: center;
+    column-gap: 50px;
+    background-color: rgb(198, 228, 254);
     height: 75px;
-    width: 100%;
+    max-width: 100%;
     padding: 10px;
+    border: 2px solid transparent;
+    border-radius: 12px;
     
 }
 #searchContainer input {
     font-size: 50px;
+    border: 3px solid rgb(248, 248, 248);
+    border-radius: 12px;
+    width: 100%;
 }
 
 #searchContainer button {
     width: 100px;
+    justify-items: end;
     font-size: 50px;
+    font-weight: 900;
     color:rgb(255, 255, 255);
-    background-color: orange;
+    background-color: rgb(251, 198, 100);
+    border-radius: 12px;
+    border: 2px solid transparent;
     cursor: pointer;
 
 
+
     &:hover {
-        color: rgb(9, 255, 235);
+        color: rgb(116, 255, 9);
+        background-color: rgb(255, 111, 0);
     }
     &:active {
         color: rgb(255, 221, 0);
@@ -38,12 +51,22 @@ html {
     margin-right: 75%;
     gap: 10px;
     padding: 20px;
-    text-align: justify
+    text-align: justify;
 }
+
 #mapLocation {
-    display: grid;
-    grid-template-columns: 1fr 2fr;
-    margin-right: 75%;
-    text-align: end;
-    gap: 10px;
+    display: flex;
+    flex-direction: column;
+}
+.map {
+    background-color: rgb(175, 175, 248);
+    color: rgb(255, 204, 0);
+    margin: auto;
+    margin-top: 50px;
+    width: 200px;
+    height: 200px;
+    border: 2px solid transparent;
+    border-radius: 16px;
+    text-align: center;
+    
 }
