@@ -24,6 +24,7 @@ async function fetchWeather() {
         // Details
   
         // DOM Selectors
+
         // Location
         const regionElement = document.querySelector(".weatherState")
         regionElement.innerHTML = state;
@@ -33,6 +34,7 @@ async function fetchWeather() {
         latElement.innerHTML = `Lat: ${latitude}`;
         const lonElement = document.querySelector(".weatherLongitude")
         lonElement.innerHTML = `Lon: ${longitude}`;
+
         // Temperature
         const temperatureELement_F = document.querySelector(".weatherUnitF")
         temperatureELement_F.innerHTML = `${temperatureF}°F`;
@@ -42,34 +44,25 @@ async function fetchWeather() {
         feelsLikeElement_F.innerHTML = `Feels Like: ${feelsLikeF}°F`;
         const feelsLikeElement_C = document.querySelector(".weatherFeelsLikeC")
         feelsLikeElement_C.innerHTML = `Feels Like: ${feelsLikeC}°C`;
-        // If the temperature is above 90f or 32c, make it red
-        if (temperatureF > 90) {
+        // If the temperature is above 90f or 32c, make it red/Glow
+        if (temperatureF > 90 || temperatureC > 32.2) {
             temperatureELement_F.style.color = "red";
-        } else {
-            // Calculate the gradient color based on the temperature
-            const gradientColor = `linear-gradient(to right, red, rgba(255, 200, 0, 1 - (temperatureF / 32))`;
-            temperatureELement_F.style.color = gradientColor;
+            temperatureELement_F.style.textShadow = "0 0 5px orange";
         }
-
-        if (feelsLikeF > 90) {
+        
+        if (feelsLikeF > 90 || feelsLikeC > 32.2) {
             feelsLikeElement_F.style.color = "red";
-        } else {
-            const gradientColor = `linear-gradient(to right, red, rgba(255, 200, 0, 1 - (feelsLikeF / 32))`;
-            feelsLikeElement_F.style.color = gradientColor;
+            feelsLikeElement_F.style.textShadow = "0 0 5px orange";
         }
-
+        
         if (temperatureC > 32.2) {
             temperatureELement_C.style.color = "red";
-        } else {
-            const gradientColor = `linear-gradient(to right, red, rgba(255, 200, 0, 1 - (temperatureC / 32.2))`;
-            temperatureELement_C.style.color = gradientColor;
+            temperatureELement_C.style.textShadow = "0 0 5px orange";
         }
-
+        
         if (feelsLikeC > 32.2) {
             feelsLikeElement_C.style.color = "red";
-        } else {
-            const gradientColor = `linear-gradient(to right, red, rgba(255, 200, 0, 1 - (feelsLikeC / 32.2))`;
-            feelsLikeElement_C.style.color = gradientColor;
+            feelsLikeElement_C.style.textShadow = "0 0 5px orange";
         }
         // Humidity
      

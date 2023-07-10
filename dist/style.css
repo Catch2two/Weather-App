@@ -48,6 +48,7 @@ html {
 }
 #temperature {
     display: grid;
+    color: rgb(234, 234, 133);
     margin-right: 75%;
     gap: 10px;
     padding: 20px;
