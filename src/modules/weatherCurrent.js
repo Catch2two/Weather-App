@@ -1,3 +1,4 @@
+import "./locationSearch.js";
 const apiKey = "6fe5d9b89c10408d90d143901232806"
 
 async function fetchWeather() {
@@ -78,10 +79,8 @@ async function fetchWeather() {
 
         return data;
     } else {
-        return null;
+        alert("Something went wrong.");
     }
 };
-
-fetchWeather()
 console.log("Current Weather Loaded")
 export {fetchWeather};

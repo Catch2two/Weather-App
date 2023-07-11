@@ -7,10 +7,11 @@
     <link rel="stylesheet" href="style.css" type="text/css">
 </head>
 <body>
+    <div class="weatherAlert">ALERT</div>
     <div class="content">
         <form id="searchContainer">
-            <input class="searchInput" placeholder="City" required></input>
-            <button type="submit">Go</button>
+            <input class="searchInput" placeholder="Zipcode" required></input>
+            <button id="searchButton" type="submit">Go</button>
         </form>
         <div class="weatherInfo">
             <div id="location">
@@ -35,6 +36,8 @@
                 <div class="weatherLongitude"></div>
                 <div class="map">Map</div>
             </div>
+        </div>
+        <div class="weatherForecast">
         </div>
     </div>
 </body>

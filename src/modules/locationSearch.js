@@ -1,10 +1,10 @@
 function handleSearch() {
     const searchInput = document.querySelector(".searchInput");
-    const goButton = document.querySelector("button");
+    const searchButton = document.querySelector("#searchButton");
   
-    goButton.addEventListener("click", () => {
-      const city = searchInput.value;
-      fetchWeather(city);
+    searchButton.addEventListener("click", () => {
+      const zipcode = searchInput.value;
+      fetchWeather(zipcode);
     });}
 
 export { handleSearch }

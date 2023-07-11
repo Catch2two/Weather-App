@@ -1,6 +1,6 @@
 import { fetchWeather } from "./modules/weatherCurrent";
 import { fetchForecast } from "./modules/weatherForecast";
-import { getData } from "./modules/locationSearch";
+import { handleSearch } from "./modules/locationSearch";
 
 const weatherData = await fetchWeather();
 
@@ -17,4 +17,5 @@ if (weatherData) {
   } else {
     console.log("Error fetching forecast data")
   }
+
 console.log("src JS's loaded.")
