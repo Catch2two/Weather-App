@@ -1,7 +1,7 @@
 const apiKey = "6fe5d9b89c10408d90d143901232806"
 
 async function fetchWeather() {
-    const city = "Hartford"
+    const city = "06021"
     const url = `http://api.weatherapi.com/v1/current.json?key=${apiKey}&q=${city}&aqi=no`
     const response = await fetch(url);
 
@@ -15,7 +15,11 @@ async function fetchWeather() {
         const temperatureC = data.current.temp_c;
         const feelsLikeF = data.current.feelslike_f;
         const feelsLikeC = data.current.feelslike_c;
-        const humidity = data.current.feelslike_c;
+        const humidity = data.current.humidity;
+        // Wind Info
+        const windDir = data.current.wind_dir;
+        const windGustM = data.current.gust_mph;
+        const windGustK = data.current.gust_kph;
         // Location
         const city = data.location.name;
         const state = data.location.region;
@@ -65,7 +69,10 @@ async function fetchWeather() {
             feelsLikeElement_C.style.textShadow = "0 0 5px orange";
         }
         // Humidity
-     
+        const weatherHumidity = document.querySelector("#weatherHumidity")
+        weatherHumidity.innerHTML = `Humidity: ${humidity}`
+        // Wind Info
+        
         // Weather Description
 
 
@@ -76,5 +83,5 @@ async function fetchWeather() {
 };
 
 fetchWeather()
-
+console.log("Current Weather Loaded")
 export {fetchWeather};
