@@ -13,7 +13,7 @@ async function fetchForecast() {
   
     const forecastElement = document.querySelector(".weatherForecast");
     const today = new Date();
-    
+    // Cycle through the Forecast Array
     for (let i = 0; i < 3; i++) {
       const date = new Date(forecastday[i].date);
       // Start day after Today.
@@ -21,7 +21,7 @@ async function fetchForecast() {
         const dayOfWeek = date.getDay();
         const dayOfMonth = date.getDate();
         const dayOfWeekString = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"][dayOfWeek];
-        
+
         forecastElement.innerHTML += `
           <h2>${dayOfWeekString} ${dayOfMonth}:</h2>
           <p>High: ${forecastday[i].day.maxtemp_f}°F</p>

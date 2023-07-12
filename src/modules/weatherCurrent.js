@@ -1,4 +1,3 @@
-import "./locationSearch.js";
 const apiKey = "6fe5d9b89c10408d90d143901232806"
 
 async function fetchWeather() {

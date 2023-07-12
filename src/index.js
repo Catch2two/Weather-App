@@ -17,5 +17,4 @@ if (weatherData) {
   } else {
     console.log("Error fetching forecast data")
   }
-
 console.log("src JS's loaded.")
