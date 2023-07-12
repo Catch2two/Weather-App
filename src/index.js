@@ -1,18 +1,14 @@
 import { fetchWeather } from "./modules/weatherCurrent";
 import { fetchForecast } from "./modules/weatherForecast";
 
+import fetchWeather from "./fetchWeather";
+import forecast from "./forecast";
 
-const weatherData = await fetchWeather();
-const forecastData = await fetchForecast();
+const form = document.querySelector("form");
 
-if (weatherData) {
-    console.log(weatherData);
-  } else {
-    console.log("Error fetching weather data");
-  };
-
-if (forecastData) {
-    console.log(forecastData);
-  } else {
-    console.log("Error fetching forecast data")
-  }
+form.addEventListener("submit", (event) => {
+  event.preventDefault();
+  const city = document.querySelector("#city").value;
+  const weatherData = fetchWeather(city);
+  const forecastData = forecast(city);
+});
