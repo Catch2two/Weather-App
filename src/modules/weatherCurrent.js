@@ -48,7 +48,9 @@ async function fetchWeather() {
         feelsLikeElement_F.innerHTML = `Feels Like: ${feelsLikeF}°F`;
         const feelsLikeElement_C = document.querySelector(".weatherFeelsLikeC")
         feelsLikeElement_C.innerHTML = `Feels Like: ${feelsLikeC}°C`;
-        // If the temperature is above 90f or 32c, make it red/Glow
+
+
+        // **STYLE** If the temperature is above 90f or 32c, make it red/Glow
         if (temperatureF > 90 || temperatureC > 32.2) {
             temperatureELement_F.style.color = "red";
             temperatureELement_F.style.textShadow = "0 0 5px orange";

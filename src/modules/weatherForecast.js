@@ -2,7 +2,7 @@ const apiKey = "6fe5d9b89c10408d90d143901232806"
 
 async function fetchForecast() {
     const city = "06021";
-    const url = `http://api.weatherapi.com/v1/forecast.json?key=6fe5d9b89c10408d90d143901232806&q=${city}&days=4&aqi=yes&alerts=yes`;
+    const url = `http://api.weatherapi.com/v1/forecast.json?key=${apiKey}&q=${city}&days=4&aqi=yes&alerts=yes`;
     const response = await fetch(url);
     // Call API
     if (response.status === 200) {

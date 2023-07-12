@@ -1,6 +1,6 @@
 import { fetchWeather } from "./modules/weatherCurrent";
 import { fetchForecast } from "./modules/weatherForecast";
-import { handleSearch } from "./modules/locationSearch";
+
 
 const weatherData = await fetchWeather();
 const forecastData = await fetchForecast();
