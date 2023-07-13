@@ -83,5 +83,5 @@ const appendWeather = (() => {
         </ul>
         `;
 }}})});
-
+appendWeather()
 export default dom;
