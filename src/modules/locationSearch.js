@@ -1,4 +1,4 @@
-const searchInput = document.querySelector(".searchInput");
+const searchInput = document.querySelector("#city");
 
 const handleSearch = () => {
   const zipcode = searchInput.value;
@@ -7,4 +7,6 @@ const handleSearch = () => {
   fetchWeather(url);
 };
 
-searchInput.addEventListener("input", handleSearch);
+searchInput.addEventListener("submit", handleSearch);
+
+export { handleSearch }

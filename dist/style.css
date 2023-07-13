@@ -2,10 +2,6 @@ html {
     background-color: rgba(119, 166, 237, 0.679);
 }
 
-.content {
-
-}
-
 form {
     display: flex;
     justify-content: center;

@@ -1,8 +1,11 @@
+import { handleSearch } from "./locationSearch"
+
 const apiKey = "6fe5d9b89c10408d90d143901232806"
+const city = "06022";
+const url = `http://api.weatherapi.com/v1/forecast.json?key=${apiKey}&q=${city}&days=4&aqi=yes&alerts=yes`
 
 async function fetchWeather() {
-    const city = "06021"
-    const url = `http://api.weatherapi.com/v1/forecast.json?key=${apiKey}&q=${city}&days=4&aqi=yes&alerts=yes`
+
     const response = await fetch(url);
 
     if (response.status === 200) {
@@ -76,17 +79,15 @@ async function fetchWeather() {
         // Wind Info
         
         // Weather Description
-
-
         return data;
     } else {
         alert("Something went wrong.");
     }
 };
 
+// Week Forecast (2 day because I'm poor)
 async function fetchForecast() {
-    const city = "06021";
-    const url = `http://api.weatherapi.com/v1/forecast.json?key=${apiKey}&q=${city}&days=4&aqi=yes&alerts=yes`;
+ 
     const response = await fetch(url);
     // Call API
     if (response.status === 200) {
@@ -107,16 +108,20 @@ async function fetchForecast() {
         const dayOfWeekString = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"][dayOfWeek];
 
         forecastElement.innerHTML += `
-        <h2>${dayOfWeekString} ${dayOfMonth}:</h2>
-        <p>High: ${forecastday[i].day.maxtemp_f}°F</p>
-        <p>Low: ${forecastday[i].day.mintemp_f}°F</p>
-        <p>Conditions: ${forecastday[i].day.condition.text}</p>
+        <h2>${dayOfWeekString} ${dayOfMonth}</h2>
+        <h4> in ${data.location.name} </h4>
+        <ul>
+            <li>High: ${forecastday[i].day.maxtemp_f}°F</li>
+            <li>Low: ${forecastday[i].day.mintemp_f}°F</li>
+            <li>Conditions: ${forecastday[i].day.condition.text}</li>
+        </ul>
         `;
     }
     }
+    console.log(data)
     return data.forecast.forecastday;
     }
   };
-  console.log("Forecast Loaded")
-console.log("Current Weather Loaded")
+
+console.log("Forecast Loaded")
 export {fetchWeather, fetchForecast};
