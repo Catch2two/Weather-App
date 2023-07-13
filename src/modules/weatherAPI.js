@@ -1,4 +1,4 @@
-import { handleSearch } from "./handleSearch";
+import { handleSearch } from "./handlers";
 
 const apiKey = "6fe5d9b89c10408d90d143901232806"
 const city = "Hartford"
