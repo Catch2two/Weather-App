@@ -1,5 +1,4 @@
-import { fetchWeather } from "./modules/weatherCurrent";
-import { fetchForecast } from "./modules/weatherForecast";
+import { fetchWeather, fetchForecast } from "./modules/weatherCurrent";
 
 fetchWeather()
 fetchForecast()
