@@ -1,3 +1,4 @@
+import { fetchWeather, fetchForecast } from "./weatherAPI";
 const appendWeather = (() => {
     function currentForecast() {
         // Updated time
