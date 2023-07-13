@@ -1,7 +1,9 @@
-import { fetchWeather } from "./weatherAPI";
+import { fetchWeather, fetchForecast } from "./weatherAPI";
 
-function handleSearch() {
-  const searchInput = document.querySelector("#city");
+const handlers = (() => {
+  const searchInput = document.querySelector('.searchInput');
 
-}
+  async function loadPage(input = 'Hartford');
+    
+})
 export { handleSearch };
