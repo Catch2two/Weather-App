@@ -1,7 +1,7 @@
-import { handleSearch } from "./locationSearch"
+import { handleSearch } from "./handleSearch";
 
 const apiKey = "6fe5d9b89c10408d90d143901232806"
-const city = "06022";
+const city = "Hartford"
 const url = `http://api.weatherapi.com/v1/forecast.json?key=${apiKey}&q=${city}&days=4&aqi=yes&alerts=yes`
 
 async function fetchWeather() {
@@ -31,7 +31,9 @@ async function fetchWeather() {
         // Details
   
         // DOM Selectors
-
+        // Updated time
+        const lastUpdateElement = document.querySelector(".weatherUpdateTime")
+        lastUpdateElement.innerHTML = `${updateTime}`;
         // Location
         const regionElement = document.querySelector(".weatherState")
         regionElement.innerHTML = state;
