@@ -21,7 +21,7 @@ input {
     width: 100%;
 }
 
-button {
+#submitButton {
     width: 100px;
     justify-items: end;
     font-size: 19px;
