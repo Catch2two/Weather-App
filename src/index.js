@@ -1,4 +1,4 @@
-import { fetchWeather, fetchForecast } from "./modules/weatherAPI";
+import { fetchWeather, fetchForecast } from "./modules/current";
 
 fetchWeather()
 fetchForecast()
