@@ -50,7 +50,7 @@ input {
     padding: 20px;
     text-align: justify;
 }
-
+/* MAP */
 #mapLocation {
     display: flex;
     flex-direction: column;
@@ -66,4 +66,20 @@ input {
     border-radius: 16px;
     text-align: center;
     
+}
+/* FORECAST */
+.weatherForecast {
+    display: grid;
+    grid-template-columns: 500px 500px;
+    text-align: end;
+
+}
+.weatherForecast div {
+
+}
+ul {
+    list-style-type: none;
+}
+h2 {
+    color: red;
 }

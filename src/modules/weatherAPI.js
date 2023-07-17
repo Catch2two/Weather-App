@@ -110,6 +110,7 @@ async function fetchForecast() {
         const dayOfWeekString = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"][dayOfWeek];
 
         forecastElement.innerHTML += `
+        <div>
         <h2>${dayOfWeekString} ${dayOfMonth}</h2>
         <h4> in ${data.location.name} </h4>
         <ul>
@@ -117,7 +118,7 @@ async function fetchForecast() {
             <li>Low: ${forecastday[i].day.mintemp_f}°F</li>
             <li>Conditions: ${forecastday[i].day.condition.text}</li>
         </ul>
-        `;
+        </div>`;
     }
     }
     console.log(data)
