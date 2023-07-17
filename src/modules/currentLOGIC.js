@@ -7,6 +7,7 @@ async function fetchWeather() {
     if (response.status === 200) {
         const data = await response.json();
         updateDOM(data);
+        console.log(data)
     } else {
         alert("Something went wrong.");
     }

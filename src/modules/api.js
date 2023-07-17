@@ -1,10 +1,10 @@
 function api() {
   const apiKey = "6fe5d9b89c10408d90d143901232806";
-  const input = "06021";
+  const input = "06111";
   const options = {
     key: apiKey,
     q: input,
-    days: 4,
+    days: 3,
     aqi: true,
     alerts: true,
   };
