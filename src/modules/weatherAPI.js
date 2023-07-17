@@ -1,5 +1,5 @@
 const apiKey = "6fe5d9b89c10408d90d143901232806"
-let city = "06021"
+const city = "06021"
 const url = `http://api.weatherapi.com/v1/forecast.json?key=${apiKey}&q=${city}&days=4&aqi=yes&alerts=yes`
 
 async function fetchWeather() {
