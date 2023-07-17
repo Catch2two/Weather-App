@@ -8,28 +8,24 @@ async function fetchWeather() {
 
     if (response.status === 200) {
         const data = await response.json();
-        // Time
+
         const dayNight = data.current.is_day;
         const updateTime = data.current.last_updated;
-        // Temperature
         const temperatureF = data.current.temp_f;
         const temperatureC = data.current.temp_c;
         const feelsLikeF = data.current.feelslike_f;
         const feelsLikeC = data.current.feelslike_c;
         const humidity = data.current.humidity;
-        // Wind Info
         const windDir = data.current.wind_dir;
         const windGustM = data.current.gust_mph;
         const windGustK = data.current.gust_kph;
-        // Location
         const city = data.location.name;
         const state = data.location.region;
         const latitude = data.location.lat;
         const longitude = data.location.lon;
-        // Details
   
         // DOM Selectors
-        // Updated time
+  
         const lastUpdateElement = document.querySelector(".weatherUpdateTime")
         lastUpdateElement.innerHTML = `${updateTime}`;
         // Location
