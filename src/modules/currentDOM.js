@@ -1,6 +1,3 @@
-import fetchWeather from "./currentLOGIC.js";
-const weatherData = await fetchWeather();
-// DOM Selectors
 const lastUpdateElement = document.querySelector(".weatherUpdateTime");
 const isDayElement = document.querySelector(".isDay");
 const regionElement = document.querySelector(".weatherState");
@@ -16,16 +13,20 @@ const weatherWindDir = document.querySelector(".weatherWindDir");
 const weatherWindGust = document.querySelector(".weatherWindGust");
 
 // Update the DOM with the weather data
-lastUpdateElement.innerHTML = weatherData.current.last_updated;
-isDayElement.innerHTML = weatherData.current.is_day;
-regionElement.innerHTML = weatherData.location.region;
-cityElement.innerHTML = weatherData.location.name;
-latElement.innerHTML = `Lat: ${weatherData.location.lat}`;
-lonElement.innerHTML = `Lon: ${weatherData.location.lon}`;
-temperatureElement_F.innerHTML = `${weatherData.current.temp_f}°F`;
-temperatureElement_C.innerHTML = `${weatherData.current.temp_c}°C`;
-feelsLikeElement_F.innerHTML = `Feels Like: ${weatherData.current.feelslike_f}°F`;
-feelsLikeElement_C.innerHTML = `Feels Like: ${weatherData.current.feelslike_c}°C`;
-weatherHumidity.innerHTML = `Humidity: ${weatherData.current.humidity}`;
-weatherWindDir.innerHTML = `Wind Direction: ${weatherData.current.wind_dir}`;
-weatherWindGust.innerHTML = `${weatherData.current.gust_mph} Mph / ${weatherData.current.gust_kph} Kph`;
+function updateDOM(weatherData) {
+  lastUpdateElement.innerHTML = weatherData.current.last_updated;
+  isDayElement.innerHTML = weatherData.current.is_day;
+  regionElement.innerHTML = weatherData.location.region;
+  cityElement.innerHTML = weatherData.location.name;
+  latElement.innerHTML = `Lat: ${weatherData.location.lat}`;
+  lonElement.innerHTML = `Lon: ${weatherData.location.lon}`;
+  temperatureElement_F.innerHTML = `${weatherData.current.temp_f}°F`;
+  temperatureElement_C.innerHTML = `${weatherData.current.temp_c}°C`;
+  feelsLikeElement_F.innerHTML = `Feels Like: ${weatherData.current.feelslike_f}°F`;
+  feelsLikeElement_C.innerHTML = `Feels Like: ${weatherData.current.feelslike_c}°C`;
+  weatherHumidity.innerHTML = `Humidity: ${weatherData.current.humidity}`;
+  weatherWindDir.innerHTML = `Wind Direction: ${weatherData.current.wind_dir}`;
+  weatherWindGust.innerHTML = `${weatherData.current.gust_mph} Mph / ${weatherData.current.gust_kph} Kph`;
+}
+
+export {updateDOM};
