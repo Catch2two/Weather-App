@@ -1,7 +1,5 @@
 import fetchWeather from "./currentLOGIC.js";
-
 const weatherData = await fetchWeather();
-
 // DOM Selectors
 const lastUpdateElement = document.querySelector(".weatherUpdateTime");
 const isDayElement = document.querySelector(".isDay");

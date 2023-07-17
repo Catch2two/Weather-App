@@ -41,28 +41,6 @@ async function fetchWeather() {
         feelsLikeElement_F.innerHTML = `Feels Like: ${feelsLikeF}°F`;
         const feelsLikeElement_C = document.querySelector(".weatherFeelsLikeC")
         feelsLikeElement_C.innerHTML = `Feels Like: ${feelsLikeC}°C`;
-
-
-        // **STYLE** If the temperature is above 90f or 32c, make it red/Glow
-        if (temperatureF > 90 || temperatureC > 32.2) {
-            temperatureELement_F.style.color = "red";
-            temperatureELement_F.style.textShadow = "0 0 5px orange";
-        }
-        
-        if (feelsLikeF > 90 || feelsLikeC > 32.2) {
-            feelsLikeElement_F.style.color = "red";
-            feelsLikeElement_F.style.textShadow = "0 0 5px orange";
-        }
-        
-        if (temperatureC > 32.2) {
-            temperatureELement_C.style.color = "red";
-            temperatureELement_C.style.textShadow = "0 0 5px orange";
-        }
-        
-        if (feelsLikeC > 32.2) {
-            feelsLikeElement_C.style.color = "red";
-            feelsLikeElement_C.style.textShadow = "0 0 5px orange";
-        }
         // Humidity
         const weatherHumidity = document.querySelector("#weatherHumidity")
         weatherHumidity.innerHTML = `Humidity: ${humidity}`
@@ -72,7 +50,27 @@ async function fetchWeather() {
         const weatherWindGust = document.querySelector(".weatherWindGust")
         weatherWindGust.innerHTML = `${windGustM} Mph / ${windGustK} Kph`
         // Weather Description
-        return data;
+
+                // **STYLE** If the temperature is above 90f or 32c, make it red/Glow
+                if (temperatureF > 90 || temperatureC > 32.2) {
+                    temperatureELement_F.style.color = "red";
+                    temperatureELement_F.style.textShadow = "0 0 5px orange";
+                }
+                
+                if (feelsLikeF > 90 || feelsLikeC > 32.2) {
+                    feelsLikeElement_F.style.color = "red";
+                    feelsLikeElement_F.style.textShadow = "0 0 5px orange";
+                }
+                
+                if (temperatureC > 32.2) {
+                    temperatureELement_C.style.color = "red";
+                    temperatureELement_C.style.textShadow = "0 0 5px orange";
+                }
+                
+                if (feelsLikeC > 32.2) {
+                    feelsLikeElement_C.style.color = "red";
+                    feelsLikeElement_C.style.textShadow = "0 0 5px orange";
+                }
     } else {
         alert("Something went wrong.");
     }

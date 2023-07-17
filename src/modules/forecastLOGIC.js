@@ -5,7 +5,6 @@ const today = new Date();
 
 async function fetchForecast() {
     const response = await fetch(url);
-    // Call API
     if (response.status === 200) {
         const data = await response.json();
         const forecastday = data.forecast.forecastday;
