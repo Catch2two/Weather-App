@@ -8,9 +8,7 @@ function api() {
     aqi: true,
     alerts: true,
   };
-
   const url = `http://api.weatherapi.com/v1/forecast.json?${Object.entries(options).map(([key, value]) => `${key}=${value}`).join('&')}`;
-
   return url;
 }
 
