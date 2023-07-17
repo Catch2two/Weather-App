@@ -1,6 +1,6 @@
 const apiKey = "6fe5d9b89c10408d90d143901232806"
-const city = "06021"
-const url = `http://api.weatherapi.com/v1/forecast.json?key=${apiKey}&q=${city}&days=4&aqi=yes&alerts=yes`
+const input = "06021"
+const url = `http://api.weatherapi.com/v1/forecast.json?key=${apiKey}&q=${input}&days=4&aqi=yes&alerts=yes`
 
 async function fetchWeather() {
 
@@ -25,10 +25,13 @@ async function fetchWeather() {
         const longitude = data.location.lon;
   
         // DOM Selectors
-  
+        // Search/Submit
+        
         const lastUpdateElement = document.querySelector(".weatherUpdateTime")
         lastUpdateElement.innerHTML = `${updateTime}`;
         // Location
+        const isDayElement = document.querySelector(".isDay")
+        isDayElement.innerHTML = `${dayNight}`
         const regionElement = document.querySelector(".weatherState")
         regionElement.innerHTML = state;
         const cityElement = document.querySelector(".weatherCity")
@@ -39,10 +42,10 @@ async function fetchWeather() {
         lonElement.innerHTML = `Lon: ${longitude}`;
 
         // Temperature
-        const temperatureELement_F = document.querySelector(".weatherUnitF")
-        temperatureELement_F.innerHTML = `${temperatureF}°F`;
-        const temperatureELement_C = document.querySelector(".weatherUnitC")
-        temperatureELement_C.innerHTML = `${temperatureC}°C`;
+        const temperatureElement_F = document.querySelector(".weatherUnitF")
+        temperatureElement_F.innerHTML = `${temperatureF}°F`;
+        const temperatureElement_C = document.querySelector(".weatherUnitC")
+        temperatureElement_C.innerHTML = `${temperatureC}°C`;
         const feelsLikeElement_F = document.querySelector(".weatherFeelsLikeF")
         feelsLikeElement_F.innerHTML = `Feels Like: ${feelsLikeF}°F`;
         const feelsLikeElement_C = document.querySelector(".weatherFeelsLikeC")
@@ -73,7 +76,10 @@ async function fetchWeather() {
         const weatherHumidity = document.querySelector("#weatherHumidity")
         weatherHumidity.innerHTML = `Humidity: ${humidity}`
         // Wind Info
-        
+        const weatherWindDir =  document.querySelector(".weatherWindDir")
+        weatherWindDir.innerHTML = `Wind Direction: ${windDir}`
+        const weatherWindGust = document.querySelector(".weatherWindGust")
+        weatherWindGust.innerHTML = `${windGustM} Mph / ${windGustK} Kph`
         // Weather Description
         return data;
     } else {

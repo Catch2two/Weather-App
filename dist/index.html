@@ -9,12 +9,13 @@
 <body>
     <div class="weatherAlert">ALERTS GO HERE SCROLLING TEXT</div>
     <div class="content">
-        <form action="" id="searchform">
-            <input type="text" class="searchInput" placeholder="City">
-            <input type="submit" autocomplete="off" value="submit" id="submitButton">
-        </form>
+        <form>
+            <input type="text" name="input" placeholder="Enter a city">
+            <button type="submit">Search</button>
+          </form>
         <div class="weatherInfo">
             <div id="location">
+                <div class="isDay"></div>
                 <div class="weatherDescription"></div>
                 <div class="weatherState"></div>
                 <div class="weatherCity"></div>
@@ -31,12 +32,13 @@
             </div>
             <div id="weatherWind">
                 <div class="weatherWindDir"></div>
+                <div class="weatherWindGust"></div>
             </div>
             <div id="weatherHumidity"></div>
             <div id="mapLocation">
+                <div class="map">Map</div>
                 <div class="weatherLatitude"></div>
                 <div class="weatherLongitude"></div>
-                <div class="map">Map</div>
             </div>
         </div>
         <div class="weatherForecast">
