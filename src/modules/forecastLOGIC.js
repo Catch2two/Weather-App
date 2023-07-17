@@ -1,17 +1,12 @@
 import api from "./api.js";
-
 const url = api();
 
 async function fetchForecast() {
- 
     const response = await fetch(url);
     // Call API
     if (response.status === 200) {
         const data = await response.json();
         const forecastday = data.forecast.forecastday;
-
-        // DOM Selectors
-
         const forecastElement = document.querySelector(".weatherForecast");
         const today = new Date();
     // Cycle through the Forecast Array

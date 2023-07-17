@@ -1,14 +1,10 @@
 import api from "./api.js";
-
 const url = api();
 
 async function fetchWeather() {
-
     const response = await fetch(url);
-
     if (response.status === 200) {
         const data = await response.json();
-
         const dayNight = data.current.is_day;
         const updateTime = data.current.last_updated;
         const temperatureF = data.current.temp_f;
@@ -23,13 +19,9 @@ async function fetchWeather() {
         const state = data.location.region;
         const latitude = data.location.lat;
         const longitude = data.location.lon;
-  
         // DOM Selectors
-        // Search/Submit
-        
         const lastUpdateElement = document.querySelector(".weatherUpdateTime")
         lastUpdateElement.innerHTML = `${updateTime}`;
-        // Location
         const isDayElement = document.querySelector(".isDay")
         isDayElement.innerHTML = `${dayNight}`
         const regionElement = document.querySelector(".weatherState")
@@ -40,7 +32,6 @@ async function fetchWeather() {
         latElement.innerHTML = `Lat: ${latitude}`;
         const lonElement = document.querySelector(".weatherLongitude")
         lonElement.innerHTML = `Lon: ${longitude}`;
-
         // Temperature
         const temperatureElement_F = document.querySelector(".weatherUnitF")
         temperatureElement_F.innerHTML = `${temperatureF}°F`;
