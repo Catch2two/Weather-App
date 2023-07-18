@@ -32,7 +32,7 @@ async function fetchForecast() {
         }
       }
     } else {
-      alert("Something went wrong.");
+      console.log("Something went wrong.");
     }
   };
 
