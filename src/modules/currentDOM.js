@@ -13,7 +13,7 @@ const weatherWindDir = document.querySelector(".weatherWindDir");
 const weatherWindGust = document.querySelector(".weatherWindGust");
 
 // Update the DOM with the weather data
-function updateDOM(weatherData) {
+function updateCurrentDOM(weatherData) {
   lastUpdateElement.innerHTML = weatherData.current.last_updated;
   isDayElement.innerHTML = weatherData.current.is_day;
   regionElement.innerHTML = weatherData.location.region;
@@ -29,4 +29,4 @@ function updateDOM(weatherData) {
   weatherWindGust.innerHTML = `${weatherData.current.gust_mph} Mph / ${weatherData.current.gust_kph} Kph`;
 }
 
-export {updateDOM};
+export { updateCurrentDOM };
