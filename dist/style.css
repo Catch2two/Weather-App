@@ -4,7 +4,6 @@ html {
 
 form {
     display: flex;
-    justify-content: center;
     background-color: rgb(198, 228, 254);
     height: 75px;
     max-width: 100%;
@@ -97,7 +96,4 @@ button {
 ul {
     list-style-type: none;
     font-weight: 900;
-}
-h2 {
-    color: red;
 }

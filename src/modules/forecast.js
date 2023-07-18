@@ -20,7 +20,7 @@ async function fetchForecast() {
           const dayOfWeekString = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"][dayOfWeek];
   
           forecastElement.innerHTML += `
-            <div>
+            <div class="forecastDiv">
               <h2>${dayOfWeekString} ${dayOfMonth}</h2>
               <h4> in ${data.location.name} </h4>
               <ul>
