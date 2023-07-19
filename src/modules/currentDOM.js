@@ -11,13 +11,15 @@ const feelsLikeElement_C = document.querySelector(".weatherFeelsLikeC");
 const weatherHumidity = document.querySelector("#weatherHumidity");
 const weatherWindDir = document.querySelector(".weatherWindDir");
 const weatherWindGust = document.querySelector(".weatherWindGust");
+//Alert!
+const weatherAlert = document.querySelector(".weatherAlert");
 // Is Day!
 const isDayElement = document.querySelector(".isDay");
 const icons = ["day.png", "night.png"];
 
 // Update the DOM with the weather data
 function updateCurrentDOM(weatherData) {
-// 
+
   lastUpdateElement.innerHTML = weatherData.current.last_updated;
   descriptionElement.innerHTML = weatherData.current.condition.text;
   regionElement.innerHTML = weatherData.location.region;
@@ -32,9 +34,28 @@ function updateCurrentDOM(weatherData) {
   weatherWindDir.innerHTML = `Wind Direction: ${weatherData.current.wind_dir}`;
   weatherWindGust.innerHTML = `${weatherData.current.gust_mph} Mph / ${weatherData.current.gust_kph} Kph`;
   isDayElement.innerHTML = weatherData.current.is_day;
+
+// Alert System
+  const warningDiv = document.querySelector(".alertDiv");
+  const handleClick = () => {
+    warningDiv.classList.toggle("hidden");
+  };
+    for (const alert of weatherData.alerts.alert.slice(2)) {
+      weatherAlert.innerHTML += `
+      <button id="warningBtn" onclick="handleClick()">Alert</button>
+      <div class="alertDiv hidden">
+        <h3>${alert.headline}</h3>
+        <p>Type: ${alert.msgtype}</p>
+        <p>Severity: ${alert.severity}</p>
+        <p>Urgency: ${alert.urgency}</p>
+        <p>Areas: ${alert.areas}</p>
+        <p>Expires: ${alert.expires}</p>
+      </div>
+      `;
+    }
   
 };
-// 
+// Images
 const showImage = () => {
   const isDay = Number(isDayElement.innerHTML);
   const imageName = icons[isDay];

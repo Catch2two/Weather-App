@@ -4,14 +4,25 @@ html {
     min-width: 800px;
     max-width: 1000px;
 }
-/* Scrolling Text Warning Top */
-#weatherAlert {
+/* Alert System */
+.weatherAlert {
+    display: flex;
+    font-size: small;
+    height: 50px;
     color: red;
     background-color: white;
     padding: 5px;
     font-weight: bolder;
 }
-
+#warningBtn {
+    background-color: red;
+    border: 0;
+    width: 150px;
+}
+.alertDiv {
+    background-color: blue;
+    
+}
 form {
     display: flex;
     background-color: rgb(198, 228, 254);
@@ -29,7 +40,7 @@ input {
     width:50vh;
 }
 
-button {
+#submitBtn {
     margin: 0 auto;
     font-size: 19px;
     font-weight: 400;
@@ -52,7 +63,7 @@ button {
     margin: 0 auto;
 }
 .weatherDescription {
-    
+
 }
 #location {
     display: grid;
