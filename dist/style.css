@@ -47,6 +47,13 @@ button {
         color: rgb(255, 0, 221);
     }
 }
+.isDay {
+    width: 100px;
+    margin: 0 auto;
+}
+.weatherDescription {
+    
+}
 #location {
     display: grid;
     grid-template-columns: 1fr;

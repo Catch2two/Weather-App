@@ -1,5 +1,5 @@
 const lastUpdateElement = document.querySelector(".weatherUpdateTime");
-const isDayElement = document.querySelector(".isDay");
+const descriptionElement = document.querySelector(".weatherDescription");
 const regionElement = document.querySelector(".weatherState");
 const cityElement = document.querySelector(".weatherCity");
 const latElement = document.querySelector(".weatherLatitude");
@@ -11,11 +11,15 @@ const feelsLikeElement_C = document.querySelector(".weatherFeelsLikeC");
 const weatherHumidity = document.querySelector("#weatherHumidity");
 const weatherWindDir = document.querySelector(".weatherWindDir");
 const weatherWindGust = document.querySelector(".weatherWindGust");
+// Is Day!
+const isDayElement = document.querySelector(".isDay");
+const icons = ["day.png", "night.png"];
 
 // Update the DOM with the weather data
 function updateCurrentDOM(weatherData) {
+// 
   lastUpdateElement.innerHTML = weatherData.current.last_updated;
-  isDayElement.innerHTML = weatherData.current.is_day;
+  descriptionElement.innerHTML = weatherData.current.condition.text;
   regionElement.innerHTML = weatherData.location.region;
   cityElement.innerHTML = weatherData.location.name;
   latElement.innerHTML = `Lat: ${weatherData.location.lat}`;
@@ -27,7 +31,17 @@ function updateCurrentDOM(weatherData) {
   weatherHumidity.innerHTML = `Humidity: ${weatherData.current.humidity}`;
   weatherWindDir.innerHTML = `Wind Direction: ${weatherData.current.wind_dir}`;
   weatherWindGust.innerHTML = `${weatherData.current.gust_mph} Mph / ${weatherData.current.gust_kph} Kph`;
-}
+  isDayElement.innerHTML = weatherData.current.is_day;
+  
+};
+// 
+const showImage = () => {
+  const isDay = Number(isDayElement.innerHTML);
+  const imageName = icons[isDay];
+
+  document.querySelector(".isDay").src = `./assets/${imageName}`;
+};
+
   /*
   // Start Alert
   startScrollingText();
@@ -48,3 +62,4 @@ function startScrollingText() {
 }
 */
 export { updateCurrentDOM };
+showImage();
