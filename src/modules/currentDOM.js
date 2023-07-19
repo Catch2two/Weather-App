@@ -27,7 +27,8 @@ function updateCurrentDOM(weatherData) {
   weatherHumidity.innerHTML = `Humidity: ${weatherData.current.humidity}`;
   weatherWindDir.innerHTML = `Wind Direction: ${weatherData.current.wind_dir}`;
   weatherWindGust.innerHTML = `${weatherData.current.gust_mph} Mph / ${weatherData.current.gust_kph} Kph`;
-
+}
+  /*
   // Start Alert
   startScrollingText();
 }
@@ -45,5 +46,5 @@ function startScrollingText() {
     }
   }, 100);
 }
-
-export { updateCurrentDOM, startScrollingText };
+*/
+export { updateCurrentDOM };
