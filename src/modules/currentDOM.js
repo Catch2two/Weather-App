@@ -11,6 +11,9 @@ const feelsLikeElement_C = document.querySelector(".weatherFeelsLikeC");
 const weatherHumidity = document.querySelector("#weatherHumidity");
 const weatherWindDir = document.querySelector(".weatherWindDir");
 const weatherWindGust = document.querySelector(".weatherWindGust");
+// Alert
+const weatherAlert = document.querySelector(".weatherAlert");
+const warningDiv = document.querySelector(".alertDiv");
 // Is Day!
 const isDayElement = document.querySelector(".isDay");
 const icons = ["day.png", "night.png"];
@@ -34,8 +37,6 @@ function updateCurrentDOM(weatherData) {
   isDayElement.innerHTML = weatherData.current.is_day;
 
 // Alert System
-  const weatherAlert = document.querySelector(".weatherAlert");
-  const warningDiv = document.querySelector(".alertDiv");
   const handleClick = () => {
     warningDiv.classList.toggle("hidden");
   };
