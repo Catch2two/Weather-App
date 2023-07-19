@@ -16,11 +16,13 @@ html {
 }
 #warningBtn {
     background-color: red;
+    color: white;
     border: 0;
     width: 150px;
 }
-.alertDiv {
-    background-color: rgb(241, 192, 58);
+.alertDiv { 
+    display: grid;
+    background-color: rgb(253, 253, 253);
     height: fit-content;
     padding: 25px;
     
