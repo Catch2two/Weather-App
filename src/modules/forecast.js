@@ -21,12 +21,14 @@ async function fetchForecast() {
   
           forecastElement.innerHTML += `
             <div class="forecastDiv">
-              <h2>${dayOfWeekString} ${dayOfMonth}</h2>
-              <h4> in ${data.location.name} </h4>
+              <h2>
+              ${dayOfWeekString} ${dayOfMonth}</h2>
               <ul>
-                <li>High: ${forecastday[i].day.maxtemp_f}°F</li>
-                <li>Low: ${forecastday[i].day.mintemp_f}°F</li>
-                <li>Conditions: ${forecastday[i].day.condition.text}</li>
+              <li>
+              High: <span class="highSpan">${forecastday[i].day.maxtemp_f}°F</span> 
+              Low: <span class="lowSpan">${forecastday[i].day.mintemp_f}°F</span>
+              </li>
+                <li id="forecastConditions">${forecastday[i].day.condition.text}</li>
               </ul>
             </div>`;
         }
