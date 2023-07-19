@@ -1,7 +1,6 @@
 html {
-    background-color: rgba(119, 166, 237, 0.679);
-    margin-left: 300px;
-    margin-right: 300px;
+    background-color: rgba(114, 160, 228, 0.679);
+    margin: 0 auto;
     min-width: 800px;
     max-width: 1000px;
 }
@@ -9,7 +8,6 @@ html {
 #weatherAlert {
     color: red;
     background-color: white;
-    border-radius: 0 0 12px 12px;
     padding: 5px;
     font-weight: bolder;
 }
@@ -25,32 +23,27 @@ form {
     
 }
 input {
-    margin: auto;
+    margin: 0 auto;
     font-size: 50px;
     border: 3px solid rgb(248, 248, 248);
     width:50vh;
 }
 
 button {
-    width: 150px;
-    height: 50%;
-    margin: auto;
+    margin: 0 auto;
     font-size: 19px;
-    font-weight: 900;
-    color:rgb(255, 255, 255);
-    background-color: rgb(251, 198, 100);
-    border-radius: 12px;
+    font-weight: 400;
+    color:rgb(255, 190, 212);
+    background-color: rgb(100, 170, 251);
     border: 2px solid transparent;
     cursor: pointer;
 
-
-
     &:hover {
-        color: rgb(116, 255, 9);
-        background-color: rgb(255, 111, 0);
+        color: rgb(9, 247, 255);
+        background-color: rgba(240, 150, 180);
     }
     &:active {
-        color: rgb(255, 221, 0);
+        color: rgb(255, 0, 221);
     }
 }
 #location {
@@ -59,10 +52,9 @@ button {
     grid-template-rows: 1fr 1fr;
     margin: auto;
     padding: 2%;
-    width: 200px;
-    background-color: aliceblue;
+    background-color: rgb(240, 150, 180);
     border: 2px solid transparent;
-    border-radius: 25px;
+    border-radius: 0 0 12px 12px;
     font-weight: 700;
     text-align: center;
 }
