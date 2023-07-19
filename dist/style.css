@@ -20,7 +20,9 @@ html {
     width: 150px;
 }
 .alertDiv {
-    background-color: blue;
+    background-color: rgb(241, 192, 58);
+    height: fit-content;
+    padding: 25px;
     
 }
 form {
