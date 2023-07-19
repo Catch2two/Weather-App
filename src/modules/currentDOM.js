@@ -53,7 +53,6 @@ function updateCurrentDOM(weatherData) {
       </div>
       `;
     }
-  
 };
 // Images
 const showImage = () => {
@@ -63,24 +62,5 @@ const showImage = () => {
   document.querySelector(".isDay").src = `./assets/${imageName}`;
 };
 
-  /*
-  // Start Alert
-  startScrollingText();
-}
-// Scroll the text from left to right
-function startScrollingText() {
-  const textElement = document.querySelector("#weatherAlert");
-  const textWidth = textElement.offsetWidth;
-  const scrollAmount = textWidth * 0.1;
-
-  setInterval(function() {
-    textElement.scrollLeft += scrollAmount;
-
-    if (textElement.scrollLeft >= textWidth) {
-      textElement.scrollLeft = 10;
-    }
-  }, 100);
-}
-*/
 export { updateCurrentDOM };
 showImage();
