@@ -27,6 +27,23 @@ function updateCurrentDOM(weatherData) {
   weatherHumidity.innerHTML = `Humidity: ${weatherData.current.humidity}`;
   weatherWindDir.innerHTML = `Wind Direction: ${weatherData.current.wind_dir}`;
   weatherWindGust.innerHTML = `${weatherData.current.gust_mph} Mph / ${weatherData.current.gust_kph} Kph`;
+
+  // Start Alert
+  startScrollingText();
+}
+// Scroll the text from left to right
+function startScrollingText() {
+  const textElement = document.querySelector("#weatherAlert");
+  const textWidth = textElement.offsetWidth;
+  const scrollAmount = textWidth * 0.1;
+
+  setInterval(function() {
+    textElement.scrollLeft += scrollAmount;
+
+    if (textElement.scrollLeft >= textWidth) {
+      textElement.scrollLeft = 10;
+    }
+  }, 100);
 }
 
-export { updateCurrentDOM };
+export { updateCurrentDOM, startScrollingText };

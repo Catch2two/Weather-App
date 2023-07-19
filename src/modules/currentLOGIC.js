@@ -1,5 +1,5 @@
 import api from "./api.js";
-import { updateCurrentDOM } from "./currentDOM.js";
+import { updateCurrentDOM} from "./currentDOM.js";
 const url = api();
 
 async function fetchWeather() {

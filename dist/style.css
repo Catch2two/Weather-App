@@ -5,6 +5,13 @@ html {
     min-width: 800px;
     max-width: 1000px;
 }
+/* Scrolling Text Warning Top */
+#weatherAlert {
+    color: red;
+    background-color: white;
+    border-radius: 0 0 12px 12px;
+    padding: 5px;
+}
 
 form {
     display: flex;
@@ -13,14 +20,13 @@ form {
     max-width: 100%;
     padding: 10px;
     border: 2px solid transparent;
-    border-radius: 12px;
+    border-radius: 12px 12px 0 0;
     
 }
 input {
     margin: auto;
     font-size: 50px;
     border: 3px solid rgb(248, 248, 248);
-    border-radius: 12px;
     width:50vh;
 }
 
