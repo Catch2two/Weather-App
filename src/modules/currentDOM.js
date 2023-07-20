@@ -35,7 +35,7 @@ function updateCurrentDOM(weatherData) {
   weatherWindDir.innerHTML = `Wind Direction: ${weatherData.current.wind_dir}`;
   weatherWindGust.innerHTML = `${weatherData.current.gust_mph} Mph / ${weatherData.current.gust_kph} Kph`;
   isDayElement.innerHTML = weatherData.current.is_day;
-
+/* Paused development 7/10/23
 // Alert System
   const handleClick = () => {
     warningDiv.classList.toggle("hidden");
@@ -52,7 +52,7 @@ function updateCurrentDOM(weatherData) {
         <p>Expires: ${alert.expires}</p>
       </div>
       `;
-    }
+    }*/
 };
 // Images
 const showImage = () => {
