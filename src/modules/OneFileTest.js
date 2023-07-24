@@ -1,4 +1,9 @@
-const today = new Date();
+function api(cityInput) {
+  const apiKey = "6fe5d9b89c10408d90d143901232806";
+  const url = `http://api.weatherapi.com/v1/forecast.json?key=${apiKey}&q=${cityInput}&days=3&aqi=yes&alerts=yes`;
+  return url;
+  
+}
 // Element Selectors
 const lastUpdateElement = document.querySelector(".weatherUpdateTime");
 const descriptionElement = document.querySelector(".weatherDescription");
@@ -19,11 +24,9 @@ const warningDiv = document.querySelector(".alertDiv");
 // Is Day!
 const isDayElement = document.querySelector(".isDay");
 const icons = ["day.png", "night.png"];
-// Search Input
-const form = document.querySelector("form");
-const cityInput = document.querySelector("#cityInput");
-// Forecast
-const forecastElement = document.querySelector(".weatherForecast");
+// Search
+const form = document.querySelector("form")
+const cityInput = document.querySelector("location")
 // Update the DOM with the weather data
 function updateCurrentDOM(weatherData) {
 
@@ -67,79 +70,16 @@ const showImage = () => {
 
   document.querySelector(".isDay").src = `./assets/${imageName}`;
 };
-
-// L O G I C
-
-// Weatherapi.com api fetch
-function api() {
-    const apiKey = "6fe5d9b89c10408d90d143901232806";
-    const city = "Hartford"
-    const url = `http://api.weatherapi.com/v1/forecast.json?key=${apiKey}&q=${city}&days=3&aqi=yes&alerts=yes`;
-    console.log("Weather for" + " " + city)
-    return url;
-  }
-
-// Current Weather Fetch
+showImage();
 async function fetchWeather() {
-    const response = await fetch(url);
-    if (response.status === 200) {
-        const data = await response.json();
-        updateCurrentDOM(data);
-        console.log(data)
-    } else {
-        console.log("Something went wrong.");
-    }
-};
-// Forecast Weather Fetch
-async function fetchForecast() {
-    const response = await fetch(url);
-    if (response.status === 200) {
+  const response = await fetch(url);
+  if (response.status === 200) {
       const data = await response.json();
-      const forecastday = data.forecast.forecastday;
-      const location = data.location.name;
-  
-      // Cycle through the Forecast Array
-      for (let i = 0; i < 3; i++) {
-        const date = new Date(forecastday[i].date);
-  
-        // Start day after Today.
-        if (date > today && date <= (new Date()).setDate(today.getDate() + 3)) {
-          const dayOfWeek = date.getDay();
-          const dayOfMonth = date.getDate();
-          const dayOfWeekString = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"][dayOfWeek];
-  
-          forecastElement.innerHTML += `
-            <div class="forecastDiv">
-              <h2>
-              ${dayOfWeekString} ${dayOfMonth}</h2>
-              <ul>
-              <li> 
-              <li>In ${location}</li>
-              High: <span class="highSpan">${forecastday[i].day.maxtemp_f}°F</span> 
-              Low: <span class="lowSpan">${forecastday[i].day.mintemp_f}°F</span>
-              </li>
-                <li id="forecastConditions">${forecastday[i].day.condition.text}</li>
-              </ul>
-            </div>`;
-        }
-      }
-    } else {
-      console.log("Something went wrong.");
-    }
-  };
+      updateCurrentDOM(data);
+      console.log(data)
+  } else {
+      console.log("Something went wrong in CurrentLOGIC.");
+  }
+};
 
 console.log("Current Weather Loaded")
-
-function handleSearch(event) {
-    event.preventDefault();
-    const city = cityInput.value;
-  
-    // Update the URL for the weather forecast data.
-    const url = `http://api.weatherapi.com/v1/forecast.json?key=6fe5d9b89c10408d90d143901232806&q=${city}&days=3&aqi=yes&alerts=yes`;
-  
-    // Log the URL to the console.
-    console.log(url);
-  }  
-
-// Listeners
-  form.addEventListener("submit", handleSearch);
