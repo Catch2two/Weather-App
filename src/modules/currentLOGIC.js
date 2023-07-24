@@ -9,7 +9,7 @@ async function fetchWeather() {
         updateCurrentDOM(data);
         console.log(data)
     } else {
-        console.log("Something went wrong.");
+        console.log("Something went wrong in CurrentLOGIC.");
     }
 };
 
