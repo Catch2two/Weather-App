@@ -20,7 +20,7 @@ const isDayElement = document.querySelector(".isDay");
 const icons = ["day.png", "night.png"];
 // Search
 const form = document.querySelector("form")
-const cityInput = document.querySelector("#cityInput")
+const cityInput = document.querySelector("location")
 // Update the DOM with the weather data
 function updateCurrentDOM(weatherData) {
 

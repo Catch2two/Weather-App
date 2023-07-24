@@ -1,6 +1,7 @@
 import api from "./api.js";
 import { updateCurrentDOM} from "./currentDOM.js";
-const url = api();
+const url = api("Hartford");
+
 
 async function fetchWeather() {
     const response = await fetch(url);

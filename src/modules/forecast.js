@@ -1,6 +1,6 @@
 import api from "./api.js";
 
-const url = api();
+const url = api("Hartford");
 const forecastElement = document.querySelector(".weatherForecast");
 const today = new Date();
 

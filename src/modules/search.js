@@ -1,6 +1,3 @@
-const form = document.querySelector("form");
-const cityInput = document.querySelector("#cityInput");
-
 function handleSearch(e) {
     e.preventDefault();
     const city = cityInput.value;
@@ -10,8 +7,5 @@ function handleSearch(e) {
   
     // Log the URL to the console.
     console.log("Weather for" + " " + city)
-  }  
-
-  form.addEventListener("submit", handleSearch);
-
+  }
   export { handleSearch }
