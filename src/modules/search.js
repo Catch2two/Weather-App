@@ -1,7 +1,7 @@
 const form = document.querySelector("form");
 const cityInput = document.querySelector("#cityInput");
 
-function handleSubmit(event) {
+function handleSearch(event) {
     event.preventDefault();
     const city = cityInput.value;
   
@@ -11,7 +11,7 @@ function handleSubmit(event) {
     // Log the URL to the console.
     console.log(url);
   }  
-  
-  form.addEventListener("submit", handleSubmit);
 
-  export { handleSubmit }
+  form.addEventListener("submit", handleSearch);
+
+  export { handleSearch }
