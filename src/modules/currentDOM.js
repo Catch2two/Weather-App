@@ -1,3 +1,4 @@
+// Element Selectors
 const lastUpdateElement = document.querySelector(".weatherUpdateTime");
 const descriptionElement = document.querySelector(".weatherDescription");
 const regionElement = document.querySelector(".weatherState");

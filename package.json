@@ -18,8 +18,10 @@
   },
   "homepage": "https://github.com/Catch2two/Weather-App#readme",
   "dependencies": {
+    "fetch": "^1.1.0",
     "lodash": "^4.17.21",
     "moment": "^2.29.4",
+    "openweathermap": "^1.0.0",
     "webpack": "^5.88.1"
   },
   "devDependencies": {
