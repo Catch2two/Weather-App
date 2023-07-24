@@ -67,7 +67,7 @@ input {
     margin: 0 auto;
 }
 .weatherDescription {
-
+    background-color: rgb(255, 160, 160);
 }
 #location {
     display: grid;
