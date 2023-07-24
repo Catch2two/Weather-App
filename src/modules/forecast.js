@@ -1,4 +1,5 @@
 import api from "./api.js";
+
 const url = api();
 const forecastElement = document.querySelector(".weatherForecast");
 const today = new Date();
@@ -8,6 +9,7 @@ async function fetchForecast() {
     if (response.status === 200) {
       const data = await response.json();
       const forecastday = data.forecast.forecastday;
+      const location = data.location.name;
   
       // Cycle through the Forecast Array
       for (let i = 0; i < 3; i++) {
@@ -24,7 +26,8 @@ async function fetchForecast() {
               <h2>
               ${dayOfWeekString} ${dayOfMonth}</h2>
               <ul>
-              <li>
+              <li> 
+              <li>In ${location}</li>
               High: <span class="highSpan">${forecastday[i].day.maxtemp_f}°F</span> 
               Low: <span class="lowSpan">${forecastday[i].day.mintemp_f}°F</span>
               </li>
