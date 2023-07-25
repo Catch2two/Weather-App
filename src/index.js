@@ -1,11 +1,11 @@
 import fetch from 'fetch';
 // Fetch API
+const url = "https://api.weatherapi.com/v1/forecast.json?key=6fe5d9b89c10408d90d143901232806&q=";
 function getWeatherData(location) {
   const apiKey = "6fe5d9b89c10408d90d143901232806";
   const url = `https://api.weatherapi.com/v1/forecast.json?key=${apiKey}&q=${location}&days=3&aqi=no&alerts=no`;
   return fetch(url).then(response => response.json());
 }
-
 
 // Fetch Logic for Weather
 async function fetchWeather() {
@@ -108,6 +108,7 @@ function updateCurrentDOM(weatherData) {
 // Event Listeners
 const inputElement = document.querySelector('#cityInput');
 inputElement.addEventListener('submit', (event) => {
+  event.preventDefault();
   const location = event.target.value;
   getWeatherData(location).then(data => updateCurrentDOM(data));
 });
