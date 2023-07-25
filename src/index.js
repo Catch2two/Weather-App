@@ -13,16 +13,10 @@ fetchForecast()
 */
 const form = document.querySelector("form");
 const cityInput = document.querySelector("location");
-const city = "Hartford";
+const city = "06067";
 
 form.addEventListener("submit", (event) => {
     event.preventDefault();
-    const newCity = cityInput;
-    if (newCity === "") {
-      alert("Please enter a city name.");
-      return;
-    }
-    city = newCity;
   });
 const apiKey = "6fe5d9b89c10408d90d143901232806";
 const url = `http://api.weatherapi.com/v1/forecast.json?key=${apiKey}&q=${city}&days=3&aqi=yes&alerts=yes`;
@@ -92,55 +86,46 @@ const icons = ["day.png", "night.png"];
   };
   showImage();
 
-  async function fetchWeather() {
-    const response = await fetch(url);
-    if (response.status === 200) {
-        const data = await response.json();
-        updateCurrentDOM(data);
-        console.log(data)
-    } else {
-        console.log("Something went wrong in CurrentLOGIC.");
-    }
-  };
-  const forecastElement = document.querySelector(".weatherForecast");
-  const today = new Date();
-  
-  async function fetchForecast() {
-      const response = await fetch(url);
-      if (response.status === 200) {
-        const data = await response.json();
-        const forecastday = data.forecast.forecastday;
-        const location = data.location.name;
-    
-        // Cycle through the Forecast Array
-        for (let i = 0; i < 3; i++) {
-          const date = new Date(forecastday[i].date);
-    
-          // Start day after Today.
-          if (date > today && date <= (new Date()).setDate(today.getDate() + 3)) {
-            const dayOfWeek = date.getDay();
-            const dayOfMonth = date.getDate();
-            const dayOfWeekString = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"][dayOfWeek];
-    
-            forecastElement.innerHTML += `
-              <div class="forecastDiv">
-                <h2>
-                ${dayOfWeekString} ${dayOfMonth}</h2>
-                <ul>
-                <li> 
-                <li>In ${location}</li>
-                High: <span class="highSpan">${forecastday[i].day.maxtemp_f}°F</span> 
-                Low: <span class="lowSpan">${forecastday[i].day.mintemp_f}°F</span>
-                </li>
-                  <li id="forecastConditions">${forecastday[i].day.condition.text}</li>
-                </ul>
-              </div>`;
-          }
-        }
-      } else {
-        console.log("Something went wrong.");
+async function fetchWeather() {
+  const response = await fetch(url);
+  if (response.status === 200) {
+    const data = await response.json();
+    updateCurrentDOM(data);
+    console.log(data);
+
+    const forecastday = data.forecast.forecastday;
+    const location = data.location.name;
+
+    // Cycle through the Forecast Array
+    for (let i = 0; i < 3; i++) {
+      const date = new Date(forecastday[i].date);
+      const forecastElement = document.querySelector(".weatherForecast");
+      const today = new Date();
+
+      // Start day after Today.
+      if (date > today && date <= (new Date()).setDate(today.getDate() + 3)) {
+        const dayOfWeek = date.getDay();
+        const dayOfMonth = date.getDate();
+        const dayOfWeekString = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"][dayOfWeek];
+
+        forecastElement.innerHTML += `
+          <div class="forecastDiv">
+            <h2>
+            ${dayOfWeekString} ${dayOfMonth}</h2>
+            <ul>
+              <li> 
+              <li>In ${location}</li>
+              High: <span class="highSpan">${forecastday[i].day.maxtemp_f}°F</span> 
+              Low: <span class="lowSpan">${forecastday[i].day.mintemp_f}°F</span>
+            </li>
+              <li id="forecastConditions">${forecastday[i].day.condition.text}</li>
+            </ul>
+          </div>`;
       }
-    };
+    }
+  } else {
+    console.log("Something went wrong.");
+  }
+};
 console.log(url)
 fetchWeather()
-fetchForecast()
