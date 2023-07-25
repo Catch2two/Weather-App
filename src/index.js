@@ -1,9 +1,10 @@
+import fetch from 'fetch';
 // Fetch API
-const form = document.querySelector("form");
-const cityInput = document.querySelector("location");
-const zipCode = "06111";
-const apiKey = "6fe5d9b89c10408d90d143901232806";
-const url = `http://api.weatherapi.com/v1/forecast.json?key=${apiKey}&q=${zipCode}&days=3&aqi=no&alerts=no, {mode: 'cors'}`;
+function getWeatherData(location) {
+  const apiKey = "6fe5d9b89c10408d90d143901232806";
+  const url = `https://api.weatherapi.com/v1/forecast.json?key=${apiKey}&q=${location}&days=3&aqi=no&alerts=no`;
+  return fetch(url).then(response => response.json());
+}
 
 
 // Fetch Logic for Weather
@@ -105,21 +106,12 @@ function updateCurrentDOM(weatherData) {
 
 
 // Event Listeners
-submit.addEventListener("click", () => {
-  fetchWeather(input.value)
+const inputElement = document.querySelector('#cityInput');
+inputElement.addEventListener('submit', (event) => {
+  const location = event.target.value;
+  getWeatherData(location).then(data => updateCurrentDOM(data));
 });
 
-input.addEvenetListener("keyup", (e) => {
-  if (e.keycode === 13) {
-    e.preventDefault();
-    submit.click()
-  }
-});
-
-input.addEventListener("click", () => {
-  input.value = ""
-});
 
 // Calls
 showImage();
-console.log(url)
