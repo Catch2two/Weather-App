@@ -113,8 +113,6 @@ input.addEvenetListener("keyup", (e) => {
   if (e.keycode === 13) {
     e.preventDefault();
     submit.click()
-  } else {
-    input.value = e.target.value;
   }
 });
 
@@ -123,6 +121,5 @@ input.addEventListener("click", () => {
 });
 
 // Calls
-fetchWeather()
 showImage();
 console.log(url)
