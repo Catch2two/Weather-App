@@ -21,6 +21,7 @@
     "fetch": "^1.1.0",
     "lodash": "^4.17.21",
     "moment": "^2.29.4",
+    "node-fetch": "^3.3.2",
     "openweathermap": "^1.0.0",
     "webpack": "^5.88.1"
   },

@@ -1,4 +1,4 @@
-import fetch from 'fetch';
+import fetch from 'node-fetch';
 // Fetch API
 const url = "https://api.weatherapi.com/v1/forecast.json?key=6fe5d9b89c10408d90d143901232806&q=";
 function getWeatherData(location) {
