@@ -1,22 +1,9 @@
-/*
-import { fetchWeather, } from "./modules/currentLOGIC";
-import { fetchForecast } from "./modules/forecast";
-import { handleSearch } from "./modules/search";
-
-const form = document.querySelector("form");
-const cityInput = document.querySelector("#cityInput");
-
-form.addEventListener("submit", handleSearch);
-// import { getWeatherMap } from "./modules/map";
-fetchWeather()
-fetchForecast()
-*/
 // Fetch API
 const form = document.querySelector("form");
 const cityInput = document.querySelector("location");
 const zipCode = "06111";
 const apiKey = "6fe5d9b89c10408d90d143901232806";
-const url = `http://api.weatherapi.com/v1/forecast.json?key=${apiKey}&q=${zipCode}&days=3&aqi=no&alerts=no`;
+const url = `http://api.weatherapi.com/v1/forecast.json?key=${apiKey}&q=${zipCode}&days=3&aqi=no&alerts=no, {mode: 'cors'}`;
 
 
 // Fetch Logic for Weather
@@ -62,6 +49,11 @@ if (response.status === 200) {
 
 
 // Element Selectors
+const body = document.querySelector("body")
+// Search
+const input = document.querySelector("#cityInput");
+const submit = document.querySelector(".add")
+// Weather info
 const lastUpdateElement = document.querySelector(".weatherUpdateTime");
 const descriptionElement = document.querySelector(".weatherDescription");
 const regionElement = document.querySelector(".weatherState");
@@ -101,6 +93,8 @@ function updateCurrentDOM(weatherData) {
   weatherWindGust.innerHTML = `${weatherData.current.gust_mph} Mph / ${weatherData.current.gust_kph} Kph`;
   isDayElement.innerHTML = weatherData.current.is_day;
 };
+
+
   // Images
   const showImage = () => {
     const isDay = Number(isDayElement.innerHTML);
@@ -108,6 +102,27 @@ function updateCurrentDOM(weatherData) {
   
     document.querySelector(".isDay").src = `./assets/${imageName}`;
   };
+
+
+// Event Listeners
+submit.addEventListener("click", () => {
+  fetchWeather(input.value)
+});
+
+input.addEvenetListener("keyup", (e) => {
+  if (e.keycode === 13) {
+    e.preventDefault();
+    submit.click()
+  } else {
+    input.value = e.target.value;
+  }
+});
+
+input.addEventListener("click", () => {
+  input.value = ""
+});
+
+// Calls
 fetchWeather()
 showImage();
 console.log(url)

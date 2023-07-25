@@ -27,7 +27,7 @@ html {
     padding: 25px;
     
 }
-form {
+.search {
     display: flex;
     background-color: rgb(198, 228, 254);
     height: 75px;
@@ -44,8 +44,7 @@ input {
     width:50vh;
 }
 
-#submitBtn {
-    margin: 0 auto;
+.add {
     font-size: 19px;
     font-weight: 400;
     color:rgb(255, 190, 212
@@ -133,9 +132,7 @@ ul {
 .lowSpan {
     color: blue;
 }
-li span {
-    
-}
+
 #forecastConditions {
     padding: 25px;
 }
