@@ -4,6 +4,7 @@ const url = "https://api.weatherapi.com/v1/forecast.json?key=6fe5d9b89c10408d90d
 function getWeatherData(location) {
   const apiKey = "6fe5d9b89c10408d90d143901232806";
   const url = `https://api.weatherapi.com/v1/forecast.json?key=${apiKey}&q=${location}&days=3&aqi=no&alerts=no`;
+  console.log(url)
   return fetch(url).then(response => response.json());
 }
 
@@ -50,10 +51,7 @@ if (response.status === 200) {
 
 
 // Element Selectors
-const body = document.querySelector("body")
-// Search
-const input = document.querySelector("#cityInput");
-const submit = document.querySelector(".add")
+
 // Weather info
 const lastUpdateElement = document.querySelector(".weatherUpdateTime");
 const descriptionElement = document.querySelector(".weatherDescription");
