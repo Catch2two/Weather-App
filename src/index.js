@@ -11,15 +11,55 @@ form.addEventListener("submit", handleSearch);
 fetchWeather()
 fetchForecast()
 */
+// Fetch API
 const form = document.querySelector("form");
 const cityInput = document.querySelector("location");
-const city = "06067";
-
-form.addEventListener("submit", (event) => {
-    event.preventDefault();
-  });
+const zipCode = "06111";
 const apiKey = "6fe5d9b89c10408d90d143901232806";
-const url = `http://api.weatherapi.com/v1/forecast.json?key=${apiKey}&q=${city}&days=3&aqi=yes&alerts=yes`;
+const url = `http://api.weatherapi.com/v1/forecast.json?key=${apiKey}&q=${zipCode}&days=3&aqi=no&alerts=no`;
+
+
+// Fetch Logic for Weather
+async function fetchWeather() {
+const response = await fetch(url);
+if (response.status === 200) {
+  const data = await response.json();
+  updateCurrentDOM(data);
+  console.log(data);
+
+  const forecastday = data.forecast.forecastday;
+  const location = data.location.name;
+
+  // Cycle through the Forecast Array
+  for (let i = 0; i < 3; i++) {
+    const date = new Date(forecastday[i].date);
+    const forecastElement = document.querySelector(".weatherForecast");
+    const today = new Date();
+
+    // Start day after Today.
+    if (date > today && date <= (new Date()).setDate(today.getDate() + 3)) {
+      const dayOfWeek = date.getDay();
+      const dayOfMonth = date.getDate();
+      const dayOfWeekString = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"][dayOfWeek];
+
+      forecastElement.innerHTML += `
+        <div class="forecastDiv">
+          <h2>
+          ${dayOfWeekString} ${dayOfMonth}</h2>
+          <ul>
+            <li> 
+            <li>In ${location}</li>
+            High: <span class="highSpan">${forecastday[i].day.maxtemp_f}°F</span> 
+            Low: <span class="lowSpan">${forecastday[i].day.mintemp_f}°F</span>
+          </li>
+            <li id="forecastConditions">${forecastday[i].day.condition.text}</li>
+          </ul>
+        </div>`;
+    }
+  }
+}
+};
+
 
 // Element Selectors
 const lastUpdateElement = document.querySelector(".weatherUpdateTime");
@@ -41,42 +81,26 @@ const warningDiv = document.querySelector(".alertDiv");
 // Is Day!
 const isDayElement = document.querySelector(".isDay");
 const icons = ["day.png", "night.png"];
+
+
 // Update the DOM with the weather data
-  function updateCurrentDOM(weatherData) {
-  
-    lastUpdateElement.innerHTML = weatherData.current.last_updated;
-    descriptionElement.innerHTML = weatherData.current.condition.text;
-    regionElement.innerHTML = weatherData.location.region;
-    cityElement.innerHTML = weatherData.location.name;
-    latElement.innerHTML = `Lat: ${weatherData.location.lat}`;
-    lonElement.innerHTML = `Lon: ${weatherData.location.lon}`;
-    temperatureElement_F.innerHTML = `${weatherData.current.temp_f}°F`;
-    temperatureElement_C.innerHTML = `${weatherData.current.temp_c}°C`;
-    feelsLikeElement_F.innerHTML = `Feels Like: ${weatherData.current.feelslike_f}°F`;
-    feelsLikeElement_C.innerHTML = `Feels Like: ${weatherData.current.feelslike_c}°C`;
-    weatherHumidity.innerHTML = `Humidity: ${weatherData.current.humidity}`;
-    weatherWindDir.innerHTML = `Wind Direction: ${weatherData.current.wind_dir}`;
-    weatherWindGust.innerHTML = `${weatherData.current.gust_mph} Mph / ${weatherData.current.gust_kph} Kph`;
-    isDayElement.innerHTML = weatherData.current.is_day;
-  /* Paused development 7/10/23
-  // Alert System
-    const handleClick = () => {
-      warningDiv.classList.toggle("hidden");
-    };
-      for (const alert of weatherData.alerts.alert) {
-        weatherAlert.innerHTML += `
-        <button id="warningBtn" onclick="handleClick()">Alert</button>
-        <div class="alertDiv hidden">
-          <h1>${alert.msgtype}</h1>
-          <h3>${alert.headline}</h3>
-          <p>Severity: ${alert.severity}</p>
-          <p>Urgency: ${alert.urgency}</p>
-          <p>Areas: ${alert.areas}</p>
-          <p>Expires: ${alert.expires}</p>
-        </div>
-        `;
-      }*/
-  };
+function updateCurrentDOM(weatherData) {
+
+  lastUpdateElement.innerHTML = weatherData.current.last_updated;
+  descriptionElement.innerHTML = weatherData.current.condition.text;
+  regionElement.innerHTML = weatherData.location.region;
+  cityElement.innerHTML = weatherData.location.name;
+  latElement.innerHTML = `Lat: ${weatherData.location.lat}`;
+  lonElement.innerHTML = `Lon: ${weatherData.location.lon}`;
+  temperatureElement_F.innerHTML = `${weatherData.current.temp_f}°F`;
+  temperatureElement_C.innerHTML = `${weatherData.current.temp_c}°C`;
+  feelsLikeElement_F.innerHTML = `Feels Like: ${weatherData.current.feelslike_f}°F`;
+  feelsLikeElement_C.innerHTML = `Feels Like: ${weatherData.current.feelslike_c}°C`;
+  weatherHumidity.innerHTML = `Humidity: ${weatherData.current.humidity}`;
+  weatherWindDir.innerHTML = `Wind Direction: ${weatherData.current.wind_dir}`;
+  weatherWindGust.innerHTML = `${weatherData.current.gust_mph} Mph / ${weatherData.current.gust_kph} Kph`;
+  isDayElement.innerHTML = weatherData.current.is_day;
+};
   // Images
   const showImage = () => {
     const isDay = Number(isDayElement.innerHTML);
@@ -84,48 +108,6 @@ const icons = ["day.png", "night.png"];
   
     document.querySelector(".isDay").src = `./assets/${imageName}`;
   };
-  showImage();
-
-async function fetchWeather() {
-  const response = await fetch(url);
-  if (response.status === 200) {
-    const data = await response.json();
-    updateCurrentDOM(data);
-    console.log(data);
-
-    const forecastday = data.forecast.forecastday;
-    const location = data.location.name;
-
-    // Cycle through the Forecast Array
-    for (let i = 0; i < 3; i++) {
-      const date = new Date(forecastday[i].date);
-      const forecastElement = document.querySelector(".weatherForecast");
-      const today = new Date();
-
-      // Start day after Today.
-      if (date > today && date <= (new Date()).setDate(today.getDate() + 3)) {
-        const dayOfWeek = date.getDay();
-        const dayOfMonth = date.getDate();
-        const dayOfWeekString = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"][dayOfWeek];
-
-        forecastElement.innerHTML += `
-          <div class="forecastDiv">
-            <h2>
-            ${dayOfWeekString} ${dayOfMonth}</h2>
-            <ul>
-              <li> 
-              <li>In ${location}</li>
-              High: <span class="highSpan">${forecastday[i].day.maxtemp_f}°F</span> 
-              Low: <span class="lowSpan">${forecastday[i].day.mintemp_f}°F</span>
-            </li>
-              <li id="forecastConditions">${forecastday[i].day.condition.text}</li>
-            </ul>
-          </div>`;
-      }
-    }
-  } else {
-    console.log("Something went wrong.");
-  }
-};
-console.log(url)
 fetchWeather()
+showImage();
+console.log(url)
